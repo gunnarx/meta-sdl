@@ -16,10 +16,15 @@ SRCREV = "96c44b8f488977fe1cf29af1a20898187a982b63"
 S = "${WORKDIR}/git"
 
 do_install() {
-    install -m 644 ${S}/index.html ${datadir}/smartdevicelink/${PN}/
-    install -d ${S}/src ${datadir}/smartdevicelink/${PN}/
-    install -d ${S}/build ${datadir}/smartdevicelink/${PN}/
-    install -d ${S}/fonts ${datadir}/smartdevicelink/${PN}/
+    install -d ${D}${datadir}/smartdevicelink/${PN}/{src,build,fonts}
+    install -m 644 ${S}/index.html \
+                   ${D}${datadir}/smartdevicelink/${PN}/
+    install -m 644 ${S}/src/* \
+                   ${D}${datadir}/smartdevicelink/${PN}/src/
+    install -m 644 ${S}/build/* \
+                   ${D}${datadir}/smartdevicelink/${PN}/build/
+    install -m 644 ${S}/fonts/* \
+                   ${D}${datadir}/smartdevicelink/${PN}/fonts/
 }
 
 PACKAGES = " \
@@ -27,5 +32,5 @@ PACKAGES = " \
 "
 
 FILES_${PN}_append = " \
-    ${datdir}/smartdevicelink/${PN} \
+    ${datadir}/smartdevicelink/${PN} \
 "

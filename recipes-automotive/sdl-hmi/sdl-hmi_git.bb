@@ -16,7 +16,7 @@ SRCREV = "96c44b8f488977fe1cf29af1a20898187a982b63"
 S = "${WORKDIR}/git"
 
 do_install() {
-    install -d ${D}${datadir}/smartdevicelink/${PN}/{src,build,fonts}
+    install -d ${datadir}/smartdevicelink/${PN}/{src,build,fonts}
     install -m 644 ${S}/index.html \
                    ${D}${datadir}/smartdevicelink/${PN}/
     install -m 644 ${S}/src/* \

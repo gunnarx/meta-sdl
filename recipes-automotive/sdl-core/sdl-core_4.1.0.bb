@@ -45,6 +45,14 @@ DEPENDS_append = " avahi bluez5 glib-2.0 sqlite3 log4cxx dbus openssl libusb1"
 DEPENDS_append = " gstreamer1.0 gstreamer1.0-plugins-good"
 DEPENDS_append = " gstreamer1.0-rtsp-server pulseaudio"
 
+# Needed to get bluetooth working
+RDEPENDS_${PN}_append = " pulseaudio-module-bluetooth-discover"
+RDEPENDS_${PN}_append = " pulseaudio-module-bluetooth-policy"
+RDEPENDS_${PN}_append = " pulseaudio-module-alsa-sink"
+RDEPENDS_${PN}_append = " pulseaudio-module-switch-on-connect"
+RDEPENDS_${PN}_append = " pulseaudio-module-bluez5-discover"
+RDEPENDS_${PN}_append = " pulseaudio-module-bluez5-device"
+
 export THIRD_PARTY_INSTALL_PREFIX="${STAGING_DIR_TARGET}"
 export GSTREAMER_DIR="${STAGING_LIBDIR}/gstreamer-1.0"
 EXTRA_OECMAKE_append = " -DNO_REBUILD_3RD_PARTY=ON"
